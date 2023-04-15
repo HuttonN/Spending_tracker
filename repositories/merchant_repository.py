@@ -11,3 +11,7 @@ def select_all():
         merchant = Merchant(row['name'], row['id'])
         merchants.append(merchant)
     return merchants
+
+def delete_all():
+    sql = "DELETE FROM merchants"
+    run_sql(sql)
