@@ -1,7 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Spending Tracker</h1>
-
-<p>Fsdfsdf</p> 
+<header>
+    <div id = "logo">
+        Spending Tracker
+    </div>
+</header>
+<section class="option-area">
+    <article class="container row">
+        <div class="single-option">
+            <i class="fa-solid fa-tag"></i>
+            <span><a href="/spending_summary">Summary</a></span>
+        </div>
+        <div class="single-option">
+            <i class="fa-solid fa-tag"></i>
+            <span>My tags</span>
+        </div>
+        <div class="single-option">
+            <i class="fa-solid fa-tag"></i>
+            <span><a href="/merchants">My merchants</a></span>
+        </div>
+        <div class="single-option">
+            <i class="fa-solid fa-tag"></i>
+            <span>Analytics</span>
+        </div>
+    </article>
+</section> 
 {% endblock content %}
