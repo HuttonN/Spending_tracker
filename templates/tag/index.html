@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table>
+        {% for tag in tags %}
+        <tr>
+            <td>{{ tag.name }}</td>
+            <td>
+                <form action="/tags/{{ tag.id }}/delete" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <p><a href="/tags/new">+ Add tag</p>
+{% endblock content %}

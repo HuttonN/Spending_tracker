@@ -32,3 +32,8 @@ def select(id):
         result = results[0]
         tag = Tag(result["name"], result["id"])
     return tag
+
+def delete(id):
+    sql = "DELETE FROM tags WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
