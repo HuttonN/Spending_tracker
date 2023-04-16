@@ -8,9 +8,16 @@
             <th>Amount</th>
         </tr>
         {% for transaction in transactions %}
+        <tr>
             <td>{{ transaction.tag.name }}</td>
             <td>{{ transaction.merchant.name }}</td>
             <td>{{ transaction.amount }}</td>
+        </tr>
         {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td>{{ total }}</td>
+        </tr>
     </table>
 {% endblock content %}

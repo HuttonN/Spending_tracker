@@ -32,3 +32,8 @@ def select(id):
         result = results[0]
         merchant = Merchant(result["name"], result["id"])
     return merchant
+
+def delete(id):
+    sql = "DELETE FROM merchants WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)

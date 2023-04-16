@@ -26,3 +26,11 @@ def select_all():
         transaction = Transaction(result["amount"], merchant, tag, result["id"])
         transactions.append(transaction)
     return transactions
+
+def total_sum():
+    total = 0
+    sql = "SELECT * FROM transactions"
+    results = run_sql(sql)
+    for result in results:
+        total += result["amount"]
+    return total
