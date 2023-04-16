@@ -39,42 +39,23 @@
                 <th>Tag</th>
                 <th>Merchant</th>
                 <th>Amount</th>
+                <th class="last_column"></th>
             </tr>
             {% for transaction in transactions %}
             <tr>
                 <td>{{ transaction.tag.name }}</td>
                 <td>{{ transaction.merchant.name }}</td>
                 <td>{{ transaction.amount }}</td>
+                <td class="last_column"></td>
             </tr>
             {% endfor %}
-            <form action="/transactions" method="POST">
-                <tr>
-                    <td>
-                        <input type="text" id="tag" name="tag" list="tags-list">
-                        <datalist id="tags-list">
-                            {% for tag in tags %}
-                                <option>{{ tag.name }}</option>
-                            {% endfor %}
-                        </datalist>
-                    </td>
-                    <td>
-                        <input type="text" id="merchant" name="merchant" list="merchants-list">
-                        <datalist id="merchants-list">
-                            {% for merchant in merchants %}
-                                <option>{{ merchant.name }}</option>
-                            {% endfor %}
-                        </datalist>
-                    </td>
-                    <td>
-                        <input type="number" id="amount" name = "amount" min="0" step="0.01" placeholder="0.00">
-                    </td>
-                </tr>
-            </form>
             <tr>
                 <td></td>
                 <td>Total:</td>
                 <td>{{ total }}</td>
+                <td></td>
             </tr>
         </table>
     </section>
+    <p><a href="/spending_summary/new">+ Add transaction</p>
 {% endblock content %}

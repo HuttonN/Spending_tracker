@@ -44,5 +44,7 @@ Health = Tag("Health")
 tag_repository.save(Health)
 
 #Create transactions
-gym_membership = Transaction(14.99, Puregym,Health)
+gym_membership = Transaction(14.99, Puregym, Health)
 transaction_repository.save(gym_membership)
+
+random = Transaction(14.99, ggg, fff)

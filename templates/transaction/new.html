@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="/spending_summary" method="POST">
+    <div>
+        <input type="text" id="tag" name="tag_id" list="tags-list">
+        <datalist id="tags-list" >
+            {% for tag in tags %}
+                <option value="{{ tag.id }}">
+                    {{ tag.name }}
+                </option>
+            {% endfor %}
+        </datalist>
+    </div>
+    <div>
+        <input type="text" id="merchant_id" name="merchant_id" list="merchants-list">
+        <datalist id="merchants-list" >
+            {% for merchant in merchants %}
+                <option value="{{ merchant.id }}">
+                    {{ merchant.name }}
+                </option>
+            {% endfor %}
+        </datalist>
+    </div>
+    <div>
+        <input type="number" id="amount" name = "amount" min="0" step="0.01" placeholder="0.00">
+    </div>
+    <div>
+        <input type = "submit">
+    </div>
+</form>
+
+{% endblock content %}
