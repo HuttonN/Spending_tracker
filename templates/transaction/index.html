@@ -29,8 +29,41 @@
     <section class="Charts">
         SDGF
     </section>
-
-    
+    <!-- Filter and sort buttons start -->
+    <a href="/spending_summary/sort_ascend">
+        <button class="btn btn-primary btn-lg">Sort (date ascending)</button>
+    </a>
+    <a href="/spending_summary/sort_descend">
+        <button class="btn btn-primary btn-lg">Sort (date descending)</button>
+    </a>
+    <select name="months" id="months">
+        <option value="">All months</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">Octobber</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+    </select>
+    <select name="tags" id="tags">
+        <option value="">All tags</option>
+        {% for tag in tags %}
+            <option value = {{tag.name}}>{{tag.name}}</option>
+        {% endfor %}
+    </select>
+    <select name="merchants" id="merchants">
+        <option value="">All merchants</option>
+        {% for merchant in merchants %}
+            <option value = {{merchant.name}}>{{merchant.name}}</option>
+        {% endfor %}
+    </select>
+    <!-- Filter and sort buttons end -->
 
     <!-- List of transactions start -->
     <section>
@@ -60,5 +93,7 @@
             </tr>
         </table>
     </section>
-    <p><a href="/spending_summary/new">+ Add transaction</p>
+    <a href="/spending_summary/new">
+        <button class="btn btn-primary btn-lg">New transaction</button>
+    </a>
 {% endblock content %}

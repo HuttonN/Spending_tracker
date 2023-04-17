@@ -34,8 +34,6 @@ Virgin = Merchant("Virgin")
 merchant_repository.save(Virgin)
 WHSmith = Merchant("WHSmith")
 merchant_repository.save(WHSmith)
-Puregym = Merchant("Puregym")
-merchant_repository.save(Puregym)
 
 #Create tags
 Bills = Tag("Bills")
