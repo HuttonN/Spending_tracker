@@ -6,9 +6,11 @@
         <input type="text" id="tag" name="tag_id" list="tags-list">
         <datalist id="tags-list" >
             {% for tag in tags %}
-                <option value="{{ tag.id }}">
-                    {{ tag.name }}
-                </option>
+                {% if tag.activated %}
+                    <option value="{{ tag.id }}">
+                        {{ tag.name }}
+                    </option>
+                {% endif %}
             {% endfor %}
         </datalist>
     </div>
@@ -16,11 +18,16 @@
         <input type="text" id="merchant_id" name="merchant_id" list="merchants-list">
         <datalist id="merchants-list" >
             {% for merchant in merchants %}
-                <option value="{{ merchant.id }}">
-                    {{ merchant.name }}
-                </option>
+                {% if merchant.activated %}
+                    <option value="{{ merchant.id }}">
+                        {{ merchant.name }}
+                    </option>
+                {% endif %}
             {% endfor %}
         </datalist>
+    </div>
+    <div>
+        <input type="date" name="transaction_date" id="transaction_date">
     </div>
     <div>
         <input type="number" id="amount" name = "amount" min="0" step="0.01" placeholder="0.00">

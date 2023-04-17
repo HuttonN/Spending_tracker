@@ -5,6 +5,7 @@ from models.merchant import Merchant
 import repositories.transaction_repository as transaction_repository
 import repositories.tag_repository as tag_repository
 import repositories.merchant_repository as merchant_repository
+import datetime
 
 transactions_blueprint = Blueprint("spending_summary", __name__)
 
@@ -29,8 +30,11 @@ def create_transaction():
     amount = request.form["amount"]
     merchant_id = request.form["merchant_id"]
     tag_id = request.form["tag_id"]
+    date = request.form["transaction_date"]
+    split_date = date.split('-')
     merchant = merchant_repository.select(merchant_id)
     tag = tag_repository.select(tag_id)
-    new_transaction = Transaction(amount,merchant,tag)
+    date = datetime.date(int(split_date[0]), int(split_date[1]), int(split_date[2]))
+    new_transaction = Transaction(amount,merchant,tag, date)
     transaction_repository.save(new_transaction)
     return redirect("/spending_summary")

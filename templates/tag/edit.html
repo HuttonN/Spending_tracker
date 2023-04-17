@@ -9,5 +9,19 @@
         <input type="text" id="name" name="name" value="{{ tag.name }}">
         <input type="submit">
     </div>
+    <div>
+        <label for="activated_tag">Activated:</label>
+        <select id="activated_tag" name="activated_tag">
+          <option value="true"
+            {% if tag.activated == True %} selected="selected" {% endif %}>
+            True
+          </option>
+          <option value="false"
+            {% if tag.activated == False %} selected="selected" {% endif %}>
+            False
+          </option>
+        </select>
+    </div>
+    <button type="submit">Update Tag</button>
 </form>
 {% endblock content %}

@@ -38,6 +38,7 @@
             <tr>
                 <th>Tag</th>
                 <th>Merchant</th>
+                <th>Date</th>
                 <th>Amount</th>
                 <th class="last_column"></th>
             </tr>
@@ -45,11 +46,13 @@
             <tr>
                 <td>{{ transaction.tag.name }}</td>
                 <td>{{ transaction.merchant.name }}</td>
+                <td>{{ transaction.date.strftime("%b %d %Y") }}</td>
                 <td>{{ transaction.amount }}</td>
                 <td class="last_column"></td>
             </tr>
             {% endfor %}
             <tr>
+                <td></td>
                 <td></td>
                 <td>Total:</td>
                 <td>{{ total }}</td>
