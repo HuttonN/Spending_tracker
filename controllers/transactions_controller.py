@@ -38,3 +38,21 @@ def create_transaction():
     new_transaction = Transaction(amount,merchant,tag, date)
     transaction_repository.save(new_transaction)
     return redirect("/spending_summary")
+
+# SORT(ascend)
+@transactions_blueprint.route("/spending_summary/sort_ascend")
+def sort_transactions_ascend():
+    transactions = transaction_repository.select_all_sort_ascend()
+    tags = tag_repository.select_all()
+    merchants = merchant_repository.select_all()
+    total = transaction_repository.total_sum()
+    return render_template("transaction/index.html", transactions = transactions, tags = tags, merchants = merchants, total = total)
+
+# SORT(descend)
+@transactions_blueprint.route("/spending_summary/sort_descend")
+def sort_transactions_descend():
+    transactions = transaction_repository.select_all_sort_descend()
+    tags = tag_repository.select_all()
+    merchants = merchant_repository.select_all()
+    total = transaction_repository.total_sum()
+    return render_template("transaction/index.html", transactions = transactions, tags = tags, merchants = merchants, total = total)

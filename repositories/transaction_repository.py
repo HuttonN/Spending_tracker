@@ -36,3 +36,27 @@ def total_sum():
     for result in results:
         total += result["amount"]
     return total
+
+def select_all_sort_ascend():
+    transactions = []
+    sql = "SELECT * FROM transactions"
+    results = run_sql(sql)
+    for result in results:
+        merchant = merchant_repository.select(result["merchant_id"])
+        tag = tag_repository.select(result["tag_id"])
+        transaction = Transaction(result["amount"], merchant, tag, result["transaction_date"], result["id"])
+        transactions.append(transaction)
+    transactions.sort(key=lambda r: r.date)
+    return transactions
+
+def select_all_sort_descend():
+    transactions = []
+    sql = "SELECT * FROM transactions"
+    results = run_sql(sql)
+    for result in results:
+        merchant = merchant_repository.select(result["merchant_id"])
+        tag = tag_repository.select(result["tag_id"])
+        transaction = Transaction(result["amount"], merchant, tag, result["transaction_date"], result["id"])
+        transactions.append(transaction)
+    transactions.sort(key=lambda r: r.date, reverse = True)
+    return transactions
