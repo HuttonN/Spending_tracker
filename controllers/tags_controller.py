@@ -19,7 +19,8 @@ def new_tag():
 @tags_blueprint.route("/tags", methods=["POST"])
 def create_tag():
     name = request.form["name"]
-    new_tag = Tag(name)
+    activated = request.form["activated_tag"]
+    new_tag = Tag(name, activated)
     tag_repository.save(new_tag)
     return redirect("/tags")
 
@@ -39,6 +40,7 @@ def edit_tag(id):
 @tags_blueprint.route("/tags/<id>", methods=["POST"])
 def update_tag(id):
     name = request.form["name"]
-    tag = Tag(name, id)
+    activated = request.form["activated_tag"]
+    tag = Tag(name, activated, id)
     tag_repository.update(tag)
     return redirect("/tags")

@@ -7,7 +7,26 @@
     <div>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" value="{{ merchant.name }}">
-        <input type="submit">
     </div>
+    <div>
+        <label for="activated_merchant">Activated:</label>
+        <select id="activated_merchant" name="activated_merchant">
+    
+          <option value="true"
+            {% if merchant.activated == True %} selected="selected" {% endif %}>
+            True
+          </option>
+    
+          <option value="false"
+            {% if merchant.activated == False %} selected="selected" {% endif %}>
+            False
+          </option>
+    
+        </select>
+      </div>
+    
+
+    <button type="submit">Update Merchant</button>
+
 </form>
 {% endblock content %}
