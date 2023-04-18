@@ -56,3 +56,12 @@ def sort_transactions_descend():
     merchants = merchant_repository.select_all()
     total = transaction_repository.total_sum()
     return render_template("transaction/index.html", transactions = transactions, tags = tags, merchants = merchants, total = total)
+
+# Filter tags
+@transactions_blueprint.route("/spending_summary/filter")
+def filter_transactions_tags():
+    transactions = transaction_repository.select_all()
+    tags = tag_repository.select_all()
+    merchants = merchant_repository.select_all()
+    total = transaction_repository.total_sum()
+    return render_template("transaction/index.html", transactions = transactions, tags = tags, merchants = merchants, total = total)

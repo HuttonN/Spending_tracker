@@ -7,67 +7,74 @@
         <div id="logo_transactions">
             Spending summary
         </div>
+        <nav>
+            <ul>
+                <li class="Home_link">
+                    <a href="/">Home <i class="fa-solid fa-house-chimney-window fa-1x"></i></a>
+                </li>
+                <li class = "tags_link">
+                    <a href="/tags">My tags <i class="fa fa-tag fa-1x" aria-hidden="true"></i></a>
+                </li>
+                <li class = "merchants_link">
+                    <a href="/merchants">My merchants <i class="fa-solid fa-store fa-1x"></i></a>
+                </li>
+                <li class="budgeting_link">
+                    <a href="">Budgeting <i class="fa-solid fa-balance-scale fa-1x"></i></a>
+                </li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li>
-                <a href="">Home</a>
-            </li>
-            <li>
-                <a href="">My merchants</a>
-            </li>
-            <li>
-                <a href="">My tags</a>
-            </li>
-            <li>
-                <a href="">Analytics</a>
-            </li>
-        </ul>
-    </nav>
     <!-- header-end -->
 
-    <section class="Charts">
-        SDGF
-    </section>
     <!-- Filter and sort buttons start -->
-    <a href="/spending_summary/sort_ascend">
-        <button class="btn btn-primary btn-lg">Sort (date ascending)</button>
-    </a>
-    <a href="/spending_summary/sort_descend">
-        <button class="btn btn-primary btn-lg">Sort (date descending)</button>
-    </a>
-    <select name="months" id="months">
-        <option value="">All months</option>
-        <option value="January">January</option>
-        <option value="February">February</option>
-        <option value="March">March</option>
-        <option value="April">April</option>
-        <option value="May">May</option>
-        <option value="June">June</option>
-        <option value="July">July</option>
-        <option value="August">August</option>
-        <option value="September">September</option>
-        <option value="October">Octobber</option>
-        <option value="November">November</option>
-        <option value="December">December</option>
-    </select>
-    <select name="tags" id="tags">
-        <option value="">All tags</option>
-        {% for tag in tags %}
-            <option value = {{tag.name}}>{{tag.name}}</option>
-        {% endfor %}
-    </select>
-    <select name="merchants" id="merchants">
-        <option value="">All merchants</option>
-        {% for merchant in merchants %}
-            <option value = {{merchant.name}}>{{merchant.name}}</option>
-        {% endfor %}
-    </select>
+    <section class="filter_and_Sorts">
+        <div class="sorts">
+            Sorts
+            <a href="/spending_summary/sort_ascend">
+                <button class="btn btn-primary btn-lg">Sort (date ascending)</button>
+            </a>
+            <a href="/spending_summary/sort_descend">
+                <button class="btn btn-primary btn-lg">Sort (date descending)</button>
+            </a>
+        </div>
+        <!-- <select name="months" id="months">
+            <option value="">All months</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select> -->
+        <div>
+                <select name="tags" id="tags">
+                    <option value="">All tags</option>
+                    {% for tag in tags %}
+                        <option name = "tag_id" value = "{{tag.id}}">{{tag.name}}</option>
+                    {% endfor %}
+                </select>
+            <select name="merchants" id="merchants">
+                <option value="">All merchants</option>
+                {% for merchant in merchants %}
+                    <option value = {{merchant.name}}>{{merchant.name}}</option>
+                {% endfor %}
+            </select>
+            <a href="/spending_summary/filter">
+                <button class="btn btn-primary btn-lg">Filter</button>
+            </a>
+        </div>
+    </section>
     <!-- Filter and sort buttons end -->
 
     <!-- List of transactions start -->
-    <section>
-        <table>
+    <section class="transactions-table-section">
+        <table class="transaction-table">
             <tr>
                 <th>Tag</th>
                 <th>Merchant</th>

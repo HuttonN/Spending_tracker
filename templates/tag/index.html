@@ -1,6 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <header>
+        <div id="logo_tags">
+            My tags
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/spending_summary">Spending summary</a>
+            </li>
+            <li>
+                <a href="/merchants">My merchants</a>
+            </li>
+            <li>
+                <a href="">Analytics</a>
+            </li>
+        </ul>
+    </nav>
     <table>
         {% for tag in tags %}
         <tr>

@@ -60,3 +60,15 @@ def select_all_sort_descend():
         transactions.append(transaction)
     transactions.sort(key=lambda r: r.date, reverse = True)
     return transactions
+
+def select_all_filter_tag(tag):
+    transactions = []
+    sql = "SELECT * FROM transactions WHERE tag_id=%s"
+    values = [tag.id]
+    results = run_sql(sql, values)
+    for result in results:
+        merchant = merchant_repository.select(result["merchant_id"])
+        tag = tag_repository.select(result["tag_id"])
+        transaction = Transaction(result["amount"], merchant, tag, result["transaction_date"], result["id"])
+        transactions.append(transaction)
+    return transactions

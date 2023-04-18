@@ -1,6 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <header>
+        <div id="logo_merchants">
+            My merchants
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/spending_summary">Spending summary</a>
+            </li>
+            <li>
+                <a href="/tags">My tags</a>
+            </li>
+            <li>
+                <a href="">Analytics</a>
+            </li>
+        </ul>
+    </nav>
     <table>
         {% for merchant in merchants %}
         <tr>
