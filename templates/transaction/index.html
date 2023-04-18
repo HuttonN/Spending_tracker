@@ -29,13 +29,17 @@
     <!-- Filter and sort buttons start -->
     <section class="filter_and_Sorts">
         <div class="sorts">
-            Sorts
-            <a href="/spending_summary/sort_ascend">
-                <button class="btn btn-primary btn-lg">Sort (date ascending)</button>
-            </a>
-            <a href="/spending_summary/sort_descend">
-                <button class="btn btn-primary btn-lg">Sort (date descending)</button>
-            </a>
+            <div class = "sort_filter_title">
+                Sorts
+            </div>
+            <div class = "sort_options">
+                <a href="/spending_summary/sort_ascend">
+                    <button class="btn btn-primary btn-lg">Sort (date ascending)</button>
+                </a>
+                <a href="/spending_summary/sort_descend">
+                    <button class="btn btn-primary btn-lg">Sort (date descending)</button>
+                </a>
+            </div>
         </div>
         <!-- <select name="months" id="months">
             <option value="">All months</option>
@@ -52,7 +56,10 @@
             <option value="November">November</option>
             <option value="December">December</option>
         </select> -->
-        <div>
+        <div class= "filters">
+            <div class = "sort_filter_title">
+                Filters
+            </div>
             <form action="/spending_summary/filter" method="POST">
                 <select name="tag_id" id="tag">
                     <option selected disabled>All tags</option>
@@ -91,6 +98,13 @@
                 <td class="last_column"></td>
             </tr>
             {% endfor %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
             <tr>
                 <td></td>
                 <td></td>

@@ -35,6 +35,7 @@ body {
     justify-content: center;
   }
 
+
   .row {
     grid-template-columns: 50% 50%;
   }
@@ -92,6 +93,7 @@ body {
   .sorts {
     display: flex;
     flex-direction: column;
+    justify-self: center;
   }
 
   .hp_header {
@@ -124,4 +126,19 @@ body {
     justify-self: end;
     white-space: nowrap;
     direction: rtl;
+  }
+
+  tr:hover {
+    background-color: #fff;
+    color: rgb(32,32,32)
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+  }
+
+  .sort_filter_title {
+    align-self: center;
   }
