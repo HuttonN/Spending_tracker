@@ -1,27 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <header>
-        <div id="logo_tags">
+    <header class = op_header>
+        <div class = op_title>
             My tags
         </div>
+        <nav class = op_nav>
+            <ul>
+                <li class="Home_link">
+                    <a href="/"><i class="fa-solid fa-house-chimney-window fa-1x"></i>    Home</a>
+                </li>
+                <li class = "spending_summary_link">
+                    <a href="/spending_summary"><i class="fa fa-list fa-1x" aria-hidden="true"></i>        Spending summary</a>
+                </li>
+                <li class = "merchants_link">
+                    <a href="/merchants"><i class="fa-solid fa-store fa-1x"></i>     My merchants</a>
+                </li>
+                <li class="budgeting_link">
+                    <a href=""><i class="fa-solid fa-balance-scale fa-1x"></i>     Budgeting</a>
+                </li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/spending_summary">Spending summary</a>
-            </li>
-            <li>
-                <a href="/merchants">My merchants</a>
-            </li>
-            <li>
-                <a href="">Analytics</a>
-            </li>
-        </ul>
-    </nav>
     <table>
         {% for tag in tags %}
         <tr>

@@ -4,7 +4,7 @@ body {
     background-color:rgb(32,32,32);
 }
 
-header{
+/* header{
     height: 4rem;
     background-color:rgb(32,32,32);
     color: #fff;
@@ -13,7 +13,7 @@ header{
     align-items: center;
     font-size: 2rem;
     justify-content: center;
-}
+} */
 
 .container {
     display: grid;
@@ -92,4 +92,36 @@ header{
   .sorts {
     display: flex;
     flex-direction: column;
+  }
+
+  .hp_header {
+    height: 4rem;
+    background-color:rgb(32,32,32);
+    color: #fff;
+    display: grid;
+    align-items: center;
+    font-size: 2rem;
+    justify-content: center;
+  }
+
+  .op_header{
+    height: 10%;
+    background-color:rgb(32,32,32);
+    color: #fff;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    font-size: 2rem;
+    justify-content: center;
+} 
+
+  .op_title{
+    justify-self: start;
+    align-self: start;
+  }
+
+  .op_nav{
+    justify-self: end;
+    white-space: nowrap;
+    direction: rtl;
   }

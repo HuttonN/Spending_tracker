@@ -3,23 +3,23 @@
 {% block content %}
 
     <!-- header-start -->
-    <header>
-        <div id="logo_transactions">
+    <header class = op_header>
+        <div class= op_title>
             Spending summary
         </div>
-        <nav>
+        <nav class = op_nav>
             <ul>
                 <li class="Home_link">
-                    <a href="/">Home <i class="fa-solid fa-house-chimney-window fa-1x"></i></a>
+                    <a href="/"><i class="fa-solid fa-house-chimney-window fa-1x"></i>    Home</a>
                 </li>
                 <li class = "tags_link">
-                    <a href="/tags">My tags <i class="fa fa-tag fa-1x" aria-hidden="true"></i></a>
+                    <a href="/tags"><i class="fa fa-tag fa-1x" aria-hidden="true"></i>    My tags</a>
                 </li>
                 <li class = "merchants_link">
-                    <a href="/merchants">My merchants <i class="fa-solid fa-store fa-1x"></i></a>
+                    <a href="/merchants"><i class="fa-solid fa-store fa-1x"></i>     My merchants</a>
                 </li>
                 <li class="budgeting_link">
-                    <a href="">Budgeting <i class="fa-solid fa-balance-scale fa-1x"></i></a>
+                    <a href=""><i class="fa-solid fa-balance-scale fa-1x"></i>     Budgeting</a>
                 </li>
             </ul>
         </nav>
@@ -53,21 +53,21 @@
             <option value="December">December</option>
         </select> -->
         <div>
-                <select name="tags" id="tags">
-                    <option value="">All tags</option>
+            <form action="/spending_summary/filter" method="POST">
+                <select name="tag_id" id="tag">
+                    <option selected disabled>All tags</option>
                     {% for tag in tags %}
-                        <option name = "tag_id" value = "{{tag.id}}">{{tag.name}}</option>
+                        <option value={{tag.id}}>{{tag.name}}</option>
                     {% endfor %}
                 </select>
-            <select name="merchants" id="merchants">
-                <option value="">All merchants</option>
-                {% for merchant in merchants %}
-                    <option value = {{merchant.name}}>{{merchant.name}}</option>
-                {% endfor %}
-            </select>
-            <a href="/spending_summary/filter">
-                <button class="btn btn-primary btn-lg">Filter</button>
-            </a>
+                <select name="merchant_id" id="merchant">
+                    <option selected disabled>All merchants</option>
+                    {% for merchant in merchants %}
+                        <option value = {{merchant.id}}>{{merchant.name}}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Filter">
+            </form>
         </div>
     </section>
     <!-- Filter and sort buttons end -->

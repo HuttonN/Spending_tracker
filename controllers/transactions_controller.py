@@ -6,6 +6,7 @@ import repositories.transaction_repository as transaction_repository
 import repositories.tag_repository as tag_repository
 import repositories.merchant_repository as merchant_repository
 import datetime
+import pdb
 
 transactions_blueprint = Blueprint("spending_summary", __name__)
 
@@ -58,10 +59,19 @@ def sort_transactions_descend():
     return render_template("transaction/index.html", transactions = transactions, tags = tags, merchants = merchants, total = total)
 
 # Filter tags
-@transactions_blueprint.route("/spending_summary/filter")
-def filter_transactions_tags():
-    transactions = transaction_repository.select_all()
+@transactions_blueprint.route("/spending_summary/filter", methods =['POST'])
+def filter_transactions_tags_merchants():
+    all_transactions = transaction_repository.select_all()
+    tag_id = request.form["tag_id"]
+    tag = tag_repository.select(tag_id)
     tags = tag_repository.select_all()
+    merchant_id = request.form["merchant_id"]
+    merchant = merchant_repository.select(merchant_id)
     merchants = merchant_repository.select_all()
     total = transaction_repository.total_sum()
-    return render_template("transaction/index.html", transactions = transactions, tags = tags, merchants = merchants, total = total)
+    filtered_transactions = []
+    for transaction in all_transactions:
+        if transaction.tag.id == int(tag_id) and transaction.merchant.id == int(merchant_id):
+            filtered_transactions.append(transaction)
+    
+    return render_template("transaction/filter.html", transactions = filtered_transactions, tags = tags, tag=tag, merchant=merchant, merchants = merchants, total = total)
