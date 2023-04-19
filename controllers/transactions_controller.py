@@ -68,10 +68,11 @@ def filter_transactions_tags_merchants():
     merchant_id = request.form["merchant_id"]
     merchant = merchant_repository.select(merchant_id)
     merchants = merchant_repository.select_all()
-    total = transaction_repository.total_sum()
+    total = 0
     filtered_transactions = []
     for transaction in all_transactions:
         if transaction.tag.id == int(tag_id) and transaction.merchant.id == int(merchant_id):
             filtered_transactions.append(transaction)
+            total += transaction.amount
     
     return render_template("transaction/filter.html", transactions = filtered_transactions, tags = tags, tag=tag, merchant=merchant, merchants = merchants, total = total)

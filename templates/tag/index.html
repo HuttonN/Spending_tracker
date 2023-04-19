@@ -17,12 +17,19 @@
                     <a href="/merchants"><i class="fa-solid fa-store fa-1x"></i>     My merchants</a>
                 </li>
                 <li class="budgeting_link">
-                    <a href=""><i class="fa-solid fa-balance-scale fa-1x"></i>     Budgeting</a>
+                    <a href="/budgeting"><i class="fa-solid fa-balance-scale fa-1x"></i>     Budgeting</a>
                 </li>
             </ul>
         </nav>
     </header>
     <table>
+        <tr>
+            <th>Tag</th>
+            <th>Activated</th>
+            <th></th>
+            <th></th>
+            <th class="last_column"></th>
+        </tr>
         {% for tag in tags %}
         <tr>
             <td>
@@ -30,9 +37,9 @@
             </td>
             <td>
                 {% if tag.activated == True %}
-                    <i class="fa-solid fa-square-check" style="color:green" aria-hidden="true"></i>
+                    <i class="fa-solid fa-check" aria-hidden="true"></i>
                 {% else %}
-                    <i class="fa-solid fa-square-check" style="color:green" aria-hidden="true"></i>
+                    <i class="fa-solid fa-close" aria-hidden="true"></i>
                 {% endif %}
             </td>
             <td>

@@ -19,7 +19,7 @@
                     <a href="/merchants"><i class="fa-solid fa-store fa-1x"></i>     My merchants</a>
                 </li>
                 <li class="budgeting_link">
-                    <a href=""><i class="fa-solid fa-balance-scale fa-1x"></i>     Budgeting</a>
+                    <a href="/budgeting"><i class="fa-solid fa-balance-scale fa-1x"></i>     Budgeting</a>
                 </li>
             </ul>
         </nav>
@@ -87,7 +87,6 @@
                 <th>Merchant</th>
                 <th>Date</th>
                 <th>Amount</th>
-                <th class="last_column"></th>
             </tr>
             {% for transaction in transactions %}
             <tr>
@@ -95,26 +94,26 @@
                 <td>{{ transaction.merchant.name }}</td>
                 <td>{{ transaction.date.strftime("%b %d %Y") }}</td>
                 <td>{{ transaction.amount }}</td>
-                <td class="last_column"></td>
             </tr>
             {% endfor %}
-            <tr>
-                <td></td>
+            <tr class = "blank_row">
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
             </tr>
-            <tr>
+            <tr class = "last_row">
                 <td></td>
                 <td></td>
                 <td>Total:</td>
                 <td>{{ total }}</td>
-                <td></td>
             </tr>
         </table>
     </section>
-    <a href="/spending_summary/new">
+    <a class = "new_transaction" href="/spending_summary/new">
         <button class="btn btn-primary btn-lg">New transaction</button>
     </a>
+    <p>
+        Budget: {{ budget }}
+    </p>
 {% endblock content %}

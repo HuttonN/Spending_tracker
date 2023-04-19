@@ -62,7 +62,10 @@ body {
   }
 
   .transactions-table-section {
-    padding: 6%;
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-top: 1%;
+    padding-bottom: 1%;
   }
 
   .transaction-table{
@@ -85,7 +88,10 @@ body {
   }
 
   .filter_and_Sorts {
-    padding: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
     display: grid;
     grid-template-columns: 50% 50%;
   }
@@ -108,6 +114,10 @@ body {
 
   .op_header{
     height: 10%;
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-top: 1%;
+
     background-color:rgb(32,32,32);
     color: #fff;
     display: grid;
@@ -141,4 +151,16 @@ body {
 
   .sort_filter_title {
     align-self: center;
+  }
+
+  .blank_row{
+    height: 10px;
+  }
+
+  .new_transaction {
+    padding-left: 6%;
+  }
+
+  .last_row {
+    font-weight: bold;
   }
