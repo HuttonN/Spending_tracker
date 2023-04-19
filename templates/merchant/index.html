@@ -22,36 +22,39 @@
             </ul>
         </nav>
     </header>
-    <table>
-        <tr>
-            <th>Merchant</th>
-            <th>Activated</th>
-            <th></th>
-            <th></th>
-            <th class="last_column"></th>
-        </tr>
-        {% for merchant in merchants %}
-        <tr>
-            <td>
-                {{ merchant.name }}
-            </td>
-            <td>
-                {% if merchant.activated == True %}
-                    <i class="fa-solid fa-check" aria-hidden="true"></i>
-                {% else %}
-                    <i class="fa-solid fa-close" aria-hidden="true"></i>
-                {% endif %}
-            </td>
-            <td>
-                <form action="/merchants/{{ merchant.id }}/delete" method="POST">
-                    <input type="submit" value="Delete">
-                </form>
-            </td>
-            <td>
-                <a href="/merchants/{{ merchant.id }}/edit">Edit</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
-    <p><a href="/merchants/new">+ Add merchant</p>
+    <section class = tag-table-section>
+        <table>
+            <tr>
+                <th>Merchant</th>
+                <th class="centered_column">Activated</th>
+                <th class="delete_column"></th>
+                <th class="edit_column"></th>
+            </tr>
+            {% for merchant in merchants %}
+            <tr>
+                <td>
+                    {{ merchant.name }}
+                </td>
+                <td class="centered_column">
+                    {% if merchant.activated == True %}
+                        <i class="fa-solid fa-check" aria-hidden="true"></i>
+                    {% else %}
+                        <i class="fa-solid fa-close" aria-hidden="true"></i>
+                    {% endif %}
+                </td>
+                <td class="delete_column">
+                    <form action="/merchants/{{ merchant.id }}/delete" method="POST">
+                        <input type="submit" value="Delete">
+                    </form>
+                </td>
+                <td class="edit_column">
+                    <a href="/merchants/{{ merchant.id }}/edit"><input type="submit" value="Edit"></a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+    <a class = "new_tag" href="/merchants/new">
+        <button class="btn btn-primary btn-lg">New tag</button>
+    </a>
 {% endblock content %}

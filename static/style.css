@@ -68,7 +68,18 @@ body {
     padding-bottom: 1%;
   }
 
+  .tag-table-section {
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+
   .transaction-table{
+    width: 100%;
+  }
+
+  .tag-table{
     width: 100%;
   }
   
@@ -161,6 +172,34 @@ body {
     padding-left: 6%;
   }
 
+  .new_tag {
+    padding-left: 6%;
+  }
+
   .last_row {
     font-weight: bold;
+  }
+
+  .centered_column{
+    text-align: center;
+  }
+
+  #budget {
+    padding-left: 6%;
+    padding-top: 6%;
+  }
+
+  .total_cell {
+    text-align: right;
+    padding-right: 1%;
+  }
+
+  .delete_column {
+    width: 1%;
+    border: none;
+  }
+
+  .edit_column {
+    width: 1%;
+    border: none;
   }

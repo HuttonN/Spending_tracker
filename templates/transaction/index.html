@@ -105,7 +105,7 @@
             <tr class = "last_row">
                 <td></td>
                 <td></td>
-                <td>Total:</td>
+                <td class="total_cell">Total:</td>
                 <td>{{ total }}</td>
             </tr>
         </table>
@@ -113,7 +113,7 @@
     <a class = "new_transaction" href="/spending_summary/new">
         <button class="btn btn-primary btn-lg">New transaction</button>
     </a>
-    <p>
+    <p id = "budget">
         Budget: {{ budget }}
     </p>
 {% endblock content %}
