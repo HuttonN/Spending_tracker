@@ -37,15 +37,30 @@ Spending Tracker is a web application that helps you track your expenses and man
 - Add transactions by providing the necessary details such as tag, merchant, date, and amount.
 - View and manage your transactions, tags, and merchants through the respective sections of the application.
 - Use the filtering and sorting options in the spending summary section to analyze your expenses.
-- Set a budget and track your spending against the budget in the budgeting section.
+
+## Future features:
+
+In future I hope to implement the following features:
+
+- Addition of an analysis section where a user can view their spending patterns and set a budget
+- Integrate Machine Learning to suggest a budget based on spending history
+- Add user authentication and registeration functionality
+- Add charts and visualisations (probably on the analysis page)
+- Allow the user to import and/or export data by CSV or other suitable format
+- Allow the user to filter by transaction dates as well
+
+## Future fixes/improvements:
+
+In future I hope to improve the exisitng code by adjusting for the following:
+
+- Make the design responsive for use on different devices
+- Analyze and optimise database queries and application performance to ensure efficient handling of a larger volume of transactions and improve response times.
+- Implement additional security measures, such as input sanitization, protection against common web vulnerabilities, and secure authentication protocols.
+- Review and refactor existing code to improve readability, maintainability, and adherence to coding best practices. Update documentation to provide clear instructions on project setup and usage.
 
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request. Make sure to follow the existing coding style and guidelines.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
 
 ## Acknowledgements
 
