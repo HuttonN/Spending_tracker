@@ -20,21 +20,20 @@ Spending Tracker is a web application that helps you track your expenses and man
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository: ```git clone https://github.com/justneil11/spending-tracker.git```
 
 2. Install the required dependencies:
 
 3. Set up the database:
 - Create a new PostgreSQL database.
-- Set the database URI in the `config.py` file.
+- Set the database URL in the `config.py` file.
 
-4. Run the application:
+4. Run the application: ``` flask run ``` while at the ``` Spending_Tracker_Project ``` level
 
 5. Access the application in your web browser at `http://localhost:5000`.
 
 ## Usage
 
-- Sign up for a new account or log in with your existing credentials.
 - Add transactions by providing the necessary details such as tag, merchant, date, and amount.
 - View and manage your transactions, tags, and merchants through the respective sections of the application.
 - Use the filtering and sorting options in the spending summary section to analyze your expenses.
@@ -50,5 +49,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Acknowledgements
 
-- The Spending Tracker application was developed as part of a personal project.
+- The Spending Tracker application was developed as part of a personal project started as a student @CodeClan.
 - The project was built using the Flask web framework and various open-source libraries and resources.
