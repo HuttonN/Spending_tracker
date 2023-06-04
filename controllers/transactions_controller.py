@@ -62,21 +62,16 @@ def sort_transactions_descend():
 def filter_transactions_tags_merchants():
     all_transactions = transaction_repository.select_all()
     tag_id = request.form.get("tag_id")
-    if tag_id =="":
-        tag_id = None
     merchant_id = request.form.get("merchant_id")
-    if merchant_id =="":
-        merchant_id = None
     tags = tag_repository.select_all()
     merchants = merchant_repository.select_all()
     total = 0
     filtered_transactions = []
     
     for transaction in all_transactions:
-        if tag_id is None or (tag_id == "" or transaction.tag.id == int(tag_id)):
-            if merchant_id is None or (merchant_id == "" or transaction.merchant.id == int(merchant_id)):
-                filtered_transactions.append(transaction)
-                total += transaction.amount
+        if (not tag_id or str(transaction.tag.id) == tag_id) and (not merchant_id or str(transaction.merchant.id) == merchant_id):
+            filtered_transactions.append(transaction)
+            total += transaction.amount
 
 
     return render_template("transaction/filter.html", transactions = filtered_transactions, tags = tags, merchants = merchants, total = total)

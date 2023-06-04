@@ -62,13 +62,13 @@
             </div>
             <form action="/spending_summary/filter" method="POST">
                 <select name="tag_id" id="tag">
-                    <option selected disabled>All tags</option>
+                    <option value="">All tags</option>
                     {% for tag in tags %}
                         <option value={{tag.id}}>{{tag.name}}</option>
                     {% endfor %}
                 </select>
                 <select name="merchant_id" id="merchant">
-                    <option selected disabled>All merchants</option>
+                    <option value="">All merchants</option>
                     {% for merchant in merchants %}
                         <option value = {{merchant.id}}>{{merchant.name}}</option>
                     {% endfor %}
