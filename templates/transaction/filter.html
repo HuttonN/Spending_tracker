@@ -51,7 +51,29 @@
                 <option value="November">November</option>
                 <option value="December">December</option>
             </select> -->
-            <div>
+            <div class="filters">
+                <div class="sort_filter_title">
+                    Filters
+                </div>
+                <form action="/spending_summary/filter" method="POST">
+                <select name="days" id="days">
+                    <option value="">All days</option>
+                    {% for day in days %}
+                        <option value = "{{day}}">{{ day }}</option>
+                    {% endfor %}
+                </select>
+                <select name="months" id="months">
+                    <option value="">All months</option>
+                    {% for month in months %}
+                        <option value = "{{ month }}">{{ month }}</option>
+                    {% endfor %}
+                </select>
+                <select name="years" id="years">
+                    <option value="">All years</option>
+                    {% for year in years %}
+                        <option value = "{{ year }}">{{ year }}</option>
+                    {% endfor %}
+                </select>
                 <select name="tags" id="tags">
                     <option value="">All tags</option>
                     {% for tag in tags %}
