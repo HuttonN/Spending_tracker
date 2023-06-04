@@ -50,7 +50,7 @@
                 <select name="days" id="days">
                     <option value="">All days</option>
                     {% set unique_days = [] %}
-                    {% for transaction in transactions %}
+                    {% for transaction in transactions|sort(attribute='date.day') %}
                         {% if transaction.date.day not in unique_days %}
                             <option value="{{ transaction.date.day }}">{{ transaction.date.day }}</option>
                             {% set _ = unique_days.append(transaction.date.day) %}
@@ -60,7 +60,7 @@
                 <select name="months" id="months">
                     <option value="">All months</option>
                     {% set unique_months = [] %}
-                    {% for transaction in transactions %}
+                    {% for transaction in transactions|sort(attribute='date.month') %}
                         {% if transaction.date.month not in unique_months %}
                         <option value="{{ transaction.date.month }}">{{ transaction.date.month }}</option>
                             {% set _ = unique_months.append(transaction.date.month) %}
@@ -70,7 +70,7 @@
                 <select name="years" id="years">
                     <option value="">All years</option>
                     {% set unique_years = [] %}
-                    {% for transaction in transactions %}
+                    {% for transaction in transactions|sort(attribute='date.year') %}
                         {% if transaction.date.year not in unique_years %}
                         <option value="{{ transaction.date.year }}">{{ transaction.date.year }}</option>
                             {% set _ = unique_years.append(transaction.date.year) %}
