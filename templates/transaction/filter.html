@@ -9,16 +9,16 @@
             <nav class = op_nav>
                 <ul>
                     <li class="Home_link">
-                        <a href="/">Home <i class="fa-solid fa-house-chimney-window fa-1x"></i></a>
+                        <a href="/"><i class="fa-solid fa-house-chimney-window fa-1x"></i>    Home</a>
                     </li>
                     <li class = "tags_link">
-                        <a href="/tags">My tags <i class="fa fa-tag fa-1x" aria-hidden="true"></i></a>
+                        <a href="/tags"><i class="fa fa-tag fa-1x" aria-hidden="true"></i>    My tags</a>
                     </li>
                     <li class = "merchants_link">
-                        <a href="/merchants">My merchants <i class="fa-solid fa-store fa-1x"></i></a>
+                        <a href="/merchants"><i class="fa-solid fa-store fa-1x"></i>     My merchants</a>
                     </li>
                     <li class="budgeting_link">
-                        <a href="">Budgeting <i class="fa-solid fa-balance-scale fa-1x"></i></a>
+                        <a href="/budgeting"><i class="fa-solid fa-balance-scale fa-1x"></i>     Budgeting</a>
                     </li>
                 </ul>
             </nav>
@@ -28,45 +28,37 @@
         <!-- Filter and sort buttons start -->
         <section class="filter_and_Sorts">
             <div class="sorts">
-                Sorts
-                <a href="/spending_summary/sort_ascend">
-                    <button class="btn btn-primary btn-lg">Sort (date ascending)</button>
-                </a>
-                <a href="/spending_summary/sort_descend">
-                    <button class="btn btn-primary btn-lg">Sort (date descending)</button>
-                </a>
+                <div class="sort_filter_title">
+                    Sorts
+                </div>
+                <div class="sort_options">
+                    <a href="/spending_summary/sort_ascend">
+                        <button class="btn btn-primary btn-lg">Sort (date ascending)</button>
+                    </a>
+                    <a href="/spending_summary/sort_descend">
+                        <button class="btn btn-primary btn-lg">Sort (date descending)</button>
+                    </a>
+                </div>
             </div>
-            <!-- <select name="months" id="months">
-                <option value="">All months</option>
-                <option value="January">January</option>
-                <option value="February">February</option>
-                <option value="March">March</option>
-                <option value="April">April</option>
-                <option value="May">May</option>
-                <option value="June">June</option>
-                <option value="July">July</option>
-                <option value="August">August</option>
-                <option value="September">September</option>
-                <option value="October">October</option>
-                <option value="November">November</option>
-                <option value="December">December</option>
-            </select> -->
-            <div>
-                <select name="tags" id="tags">
-                    <option value="">All tags</option>
-                    {% for tag in tags %}
-                        <option name = "tag_id" value = "{{tag.id}}">{{tag.name}}</option>
-                    {% endfor %}
-                </select>
-                <select name="merchants" id="merchants">
-                    <option value="">All merchants</option>
-                    {% for merchant in merchants %}
-                        <option value = {{merchant.name}}>{{merchant.name}}</option>
-                    {% endfor %}
-                </select>
-                <a href="/spending_summary/filter">
-                    <button class="btn btn-primary btn-lg">Filter</button>
-                </a>
+            <div class="filters">
+                <div class="sort_filter_title">
+                    Filters
+                </div>
+                <form action="/spending_summary/filter" method="POST">
+                    <select name="tag_id" id="tags">
+                        <option value="">All tags</option>
+                        {% for tag in tags %}
+                            <option value="{{ tag.id }}">{{ tag.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="merchant_id" id="merchants">
+                        <option value="">All merchants</option>
+                        {% for merchant in merchants %}
+                            <option value="{{ merchant.id }}">{{ merchant.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit" value="Filter">
+                </form>
             </div>
         </section>
         <!-- Filter and sort buttons end -->
@@ -79,7 +71,6 @@
                     <th>Merchant</th>
                     <th>Date</th>
                     <th>Amount</th>
-                    <th class="last_column"></th>
                 </tr>
                 {% for transaction in transactions %}
                         <tr>
@@ -87,20 +78,24 @@
                             <td>{{ transaction.merchant.name }}</td>
                             <td>{{ transaction.date.strftime("%b %d %Y") }}</td>
                             <td>{{ transaction.amount }}</td>
-                            <td class="last_column"></td>
                         </tr>  
 
                 {% endfor %}
-                <tr>
+                <tr class = "blank_row">
                     <td></td>
                     <td></td>
-                    <td>Total:</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class ="last_row">
+                    <td></td>
+                    <td></td>
+                    <td class="total_cell">Total:</td>
                     <td>{{ total }}</td>
-                    <td></td>
                 </tr>
             </table>
         </section>
-        <a href="/spending_summary/new">
+        <a class = "new_transaction" href="/spending_summary/new">
             <button class="btn btn-primary btn-lg">New transaction</button>
         </a>
 

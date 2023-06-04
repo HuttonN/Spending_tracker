@@ -6,7 +6,6 @@ import repositories.transaction_repository as transaction_repository
 import repositories.tag_repository as tag_repository
 import repositories.merchant_repository as merchant_repository
 import datetime
-import pdb
 
 transactions_blueprint = Blueprint("spending_summary", __name__)
 
@@ -62,17 +61,22 @@ def sort_transactions_descend():
 @transactions_blueprint.route("/spending_summary/filter", methods =['POST'])
 def filter_transactions_tags_merchants():
     all_transactions = transaction_repository.select_all()
-    tag_id = request.form["tag_id"]
-    tag = tag_repository.select(tag_id)
+    tag_id = request.form.get("tag_id")
+    if tag_id =="":
+        tag_id = None
+    merchant_id = request.form.get("merchant_id")
+    if merchant_id =="":
+        merchant_id = None
     tags = tag_repository.select_all()
-    merchant_id = request.form["merchant_id"]
-    merchant = merchant_repository.select(merchant_id)
     merchants = merchant_repository.select_all()
     total = 0
     filtered_transactions = []
-    for transaction in all_transactions:
-        if transaction.tag.id == int(tag_id) and transaction.merchant.id == int(merchant_id):
-            filtered_transactions.append(transaction)
-            total += transaction.amount
     
-    return render_template("transaction/filter.html", transactions = filtered_transactions, tags = tags, tag=tag, merchant=merchant, merchants = merchants, total = total)
+    for transaction in all_transactions:
+        if tag_id is None or (tag_id == "" or transaction.tag.id == int(tag_id)):
+            if merchant_id is None or (merchant_id == "" or transaction.merchant.id == int(merchant_id)):
+                filtered_transactions.append(transaction)
+                total += transaction.amount
+
+
+    return render_template("transaction/filter.html", transactions = filtered_transactions, tags = tags, merchants = merchants, total = total)

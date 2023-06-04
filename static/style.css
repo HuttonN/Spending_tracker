@@ -90,6 +90,11 @@ body {
   .link_on_hp  {
     padding: 6%;
     size: 3%;
+    transition: .5s;
+  }
+
+  .link_on_hp:hover  {
+    transform: scale(1.5);
   }
 
   nav ul {
