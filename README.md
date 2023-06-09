@@ -30,7 +30,7 @@ Spending Tracker is a web application that helps you track your expenses and man
 
 4. Run the application: ``` flask run ``` while at the ``` Spending_Tracker_Project ``` level
 
-5. Access the application in your web browser at `http://localhost:5000`.
+5. Access the application in your web browser at `http://localhost:4999`.
 
 ## Usage
 
